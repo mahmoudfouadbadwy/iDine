@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2D2898262A0BF00060956C /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D2897262A0BEF0060956C /* OrderView.swift */; };
+		3B2D289C262A14400060956C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D289B262A14400060956C /* MainView.swift */; };
+		3B320446262B1EF3000F1234 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B320445262B1EF3000F1234 /* PaymentView.swift */; };
 		3B7072962628948F00F0F2ED /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7072952628948E00F0F2ED /* ItemRow.swift */; };
 		3B7539B12629E9FD00AF90B2 /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7539B02629E9FC00AF90B2 /* ItemDetail.swift */; };
 		3BC1FDCA26247CC000498A6E /* iDineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1FDC926247CC000498A6E /* iDineApp.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B2D2897262A0BEF0060956C /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		3B2D289B262A14400060956C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3B320445262B1EF3000F1234 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		3B7072952628948E00F0F2ED /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
 		3B7539B02629E9FC00AF90B2 /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
 		3BC1FDC626247CC000498A6E /* iDine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				3BC1FDC826247CC000498A6E /* iDine */,
-				3BC1FDC726247CC000498A6E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +64,7 @@
 				3BC1FDC626247CC000498A6E /* iDine.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		3BC1FDC826247CC000498A6E /* iDine */ = {
@@ -71,6 +77,10 @@
 				3BC1FDCB26247CC000498A6E /* ContentView.swift */,
 				3B7072952628948E00F0F2ED /* ItemRow.swift */,
 				3B7539B02629E9FC00AF90B2 /* ItemDetail.swift */,
+				3B2D2897262A0BEF0060956C /* OrderView.swift */,
+				3B2D289B262A14400060956C /* MainView.swift */,
+				3B320445262B1EF3000F1234 /* PaymentView.swift */,
+				3BC1FDC726247CC000498A6E /* Products */,
 				3BC1FDCD26247CDC00498A6E /* Assets.xcassets */,
 				3BC1FDE026248F1900498A6E /* menu.json */,
 				3BC1FDD226247CDC00498A6E /* Info.plist */,
@@ -158,6 +168,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7539B12629E9FD00AF90B2 /* ItemDetail.swift in Sources */,
+				3B2D289C262A14400060956C /* MainView.swift in Sources */,
+				3B2D2898262A0BF00060956C /* OrderView.swift in Sources */,
+				3B320446262B1EF3000F1234 /* PaymentView.swift in Sources */,
 				3BC1FDCC26247CC000498A6E /* ContentView.swift in Sources */,
 				3BC1FDCA26247CC000498A6E /* iDineApp.swift in Sources */,
 				3BC1FDDF26248F0A00498A6E /* Order.swift in Sources */,
