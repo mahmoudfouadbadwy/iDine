@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct PaymentView: View {
-    
-    
-    let paymentTypes = ["Cash", "Credit card", "iDine "]
-    let tipsAmount = [0, 10, 15, 20, 25]
-    
+ 
     @EnvironmentObject var order: Order
     @State private var paymentType = "Cash"
     @State private var addLoyaltyDetails = false
@@ -20,7 +16,9 @@ struct PaymentView: View {
     @State private var tip = 15
     @State private var showingPaymentAlert = false
     
-    var totalPrice: String {
+    private let paymentTypes = ["Cash", "Credit card", "iDine "]
+    private let tipsAmount = [0, 10, 15, 20, 25]
+    private var totalPrice: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ItemRow: View {
+    
+   let item: MenuItem
    private  let colors: [String: Color] = ["D": .purple, "G": .black, "N": .red, "S": .blue, "V": .green]
-    let item: MenuItem
+    
     var body: some View {
         HStack {
             Image(item.thumbnailImage)
@@ -17,7 +19,8 @@ struct ItemRow: View {
                 .overlay(Circle().stroke(Color.gray, lineWidth: 2.0))
             
             VStack(alignment: .leading) {
-                Text(item.name).font(.headline)
+                Text(item.name)
+                    .font(.headline)
                 Text("$\(item.price)")
             }
             Spacer()

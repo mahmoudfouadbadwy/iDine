@@ -29,7 +29,7 @@ struct OrderView: View {
             }.navigationTitle("Order")
             .listStyle(InsetGroupedListStyle())
             .toolbar {
-                EditButton()
+                EditButton().disabled(order.items.isEmpty)
             }
         }
     }
