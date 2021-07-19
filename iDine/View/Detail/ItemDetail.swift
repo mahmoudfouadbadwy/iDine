@@ -31,7 +31,8 @@ struct ItemDetail: View {
             
             Button("Order This") {
                 order.add(item: item)
-            }.font(.headline)
+            }
+            .font(.headline)
             Spacer()
         }
         .navigationTitle(item.name)

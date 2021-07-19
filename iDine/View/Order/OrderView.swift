@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct OrderView: View {
+    
     @EnvironmentObject var order: Order
+    
     var body: some View {
         NavigationView {
-            List {
+            Form {
                 Section {
                     ForEach(order.items) { item in
                         HStack {
@@ -19,17 +21,20 @@ struct OrderView: View {
                             Spacer()
                             Text("$\(item.price)")
                         }
-                    }.onDelete(perform: deleteItems)
+                    }
+                    .onDelete(perform: deleteItems)
                 }
                 Section {
                     NavigationLink(destination: PaymentView()) {
                         Text("Place Order")
                     }
-                }.disabled(order.items.isEmpty)
-            }.navigationTitle("Order")
-            .listStyle(InsetGroupedListStyle())
+                }
+                .disabled(order.items.isEmpty)
+            }
+            .navigationTitle("Order")
             .toolbar {
-                EditButton().disabled(order.items.isEmpty)
+                EditButton()
+                    .disabled(order.items.isEmpty)
             }
         }
     }
@@ -42,6 +47,7 @@ struct OrderView: View {
 
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderView().environmentObject(Order())
+        OrderView()
+            .environmentObject(Order())
     }
 }

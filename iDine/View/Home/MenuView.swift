@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MenuView: View {
     
-    let menu = Bundle.main.decode([MenuSection].self, from: "menu.json")
+    private let menu = Bundle.main.decode([MenuSection].self, from: "menu.json")
     
     var body: some View {
         
@@ -24,14 +24,15 @@ struct ContentView: View {
                         }
                     }
                 }
-            }.navigationTitle("Menu")
-            .listStyle(GroupedListStyle())
+            }
+            .navigationTitle("Menu")
+            .listStyle(InsetGroupedListStyle())
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MenuView()
     }
 }

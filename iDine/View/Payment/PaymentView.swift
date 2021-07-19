@@ -24,7 +24,7 @@ struct PaymentView: View {
         
         let total = Double(order.total)
         let tipValue =  (total  * Double(tip)) / 100
-        return formatter.string(from: NSNumber(value: total + tipValue)) ?? "0$"
+        return formatter.string(from: NSNumber(value: total + tipValue)) ?? "0.0$"
     }
     
     var body: some View {
@@ -39,7 +39,9 @@ struct PaymentView: View {
                 Toggle("Add iDine loyalty card", isOn: $addLoyaltyDetails)
                 
                 if addLoyaltyDetails {
-                    TextField("Enter your iDine ID", text: $loyaltyNumber.animation())
+                    TextField("Enter your iDine ID",
+                              text: $loyaltyNumber
+                                .animation())
                 }
             }
             
@@ -48,7 +50,8 @@ struct PaymentView: View {
                     ForEach(tipsAmount, id: \.self) {
                         Text("\($0)%")
                     }
-                }.pickerStyle(SegmentedPickerStyle())
+                }
+                .pickerStyle(SegmentedPickerStyle())
             }
             
             Section(header:
@@ -60,10 +63,13 @@ struct PaymentView: View {
                 }
             }
             
-        }.navigationTitle("Payment")
+        }
+        .navigationTitle("Payment")
         .navigationBarTitleDisplayMode(.inline)
         .alert(isPresented: $showingPaymentAlert) {
-            Alert(title: Text("Order Confirmed"), message: Text("Total Price is \(totalPrice)"), dismissButton: .default(Text("Ok")))
+            Alert(title: Text("Order Confirmed"),
+                  message: Text("Total Price is \(totalPrice)"),
+                  dismissButton: .default(Text("Ok")))
         }
     }
 }

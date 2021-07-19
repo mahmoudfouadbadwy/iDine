@@ -13,10 +13,12 @@ struct ItemRow: View {
    private  let colors: [String: Color] = ["D": .purple, "G": .black, "N": .red, "S": .blue, "V": .green]
     
     var body: some View {
+        
         HStack {
             Image(item.thumbnailImage)
                 .clipShape(Circle())
-                .overlay(Circle().stroke(Color.gray, lineWidth: 2.0))
+                .overlay(Circle()
+                            .stroke(Color.gray, lineWidth: 2.0))
             
             VStack(alignment: .leading) {
                 Text(item.name)
