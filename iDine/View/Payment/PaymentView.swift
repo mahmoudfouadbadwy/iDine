@@ -16,7 +16,7 @@ struct PaymentView: View {
     @State private var tip = 15
     @State private var showingPaymentAlert = false
     
-    private let paymentTypes = ["Cash", "Credit card", "iDine "]
+    private let paymentTypes = ["Cash", "Credit card", "iDine"]
     private let tipsAmount = [0, 10, 15, 20, 25]
     private var totalPrice: String {
         let formatter = NumberFormatter()
@@ -30,18 +30,22 @@ struct PaymentView: View {
     var body: some View {
         Form {
             Section {
-                Picker("How do you want to pay?", selection: $paymentType) {
-                    ForEach(paymentTypes, id: \.self) {
+                Picker("How do you want to pay?",
+                       selection: $paymentType) {
+                    ForEach(paymentTypes,
+                            id: \.self) {
                         Text($0)
                     }
                 }
                 
-                Toggle("Add iDine loyalty card", isOn: $addLoyaltyDetails)
+                Toggle("Add iDine loyalty card",
+                       isOn: $addLoyaltyDetails)
                 
                 if addLoyaltyDetails {
                     TextField("Enter your iDine ID",
                               text: $loyaltyNumber
-                                .animation())
+                                .animation()
+                    )
                 }
             }
             
@@ -54,9 +58,8 @@ struct PaymentView: View {
                 .pickerStyle(SegmentedPickerStyle())
             }
             
-            Section(header:
-                        Text("TOTAL: \(totalPrice)")
-                        .font(.largeTitle)
+            Section(header: Text("TOTAL: \(totalPrice)")
+                                 .font(.largeTitle)
             ) {
                 Button("Confirm order") {
                     showingPaymentAlert.toggle()

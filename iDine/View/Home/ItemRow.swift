@@ -15,10 +15,14 @@ struct ItemRow: View {
     var body: some View {
         
         HStack {
+            
             Image(item.thumbnailImage)
                 .clipShape(Circle())
-                .overlay(Circle()
-                            .stroke(Color.gray, lineWidth: 2.0))
+                .overlay(
+                    Circle()
+                        .stroke(Color.gray,
+                                lineWidth: 2.0)
+                )
             
             VStack(alignment: .leading) {
                 Text(item.name)
