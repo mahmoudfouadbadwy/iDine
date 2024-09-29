@@ -7,24 +7,35 @@
 
 import SwiftUI
 
+enum PaymentType: String, CaseIterable {
+    case Cash
+    case CreditCard
+    case iDine
+    
+    var value: String {
+        switch self {
+        case .Cash : return "Cash"
+        case .CreditCard: return "Credit Card"
+        case .iDine: return "iDine"
+            
+        }
+    }
+}
+
 struct PaymentView: View {
  
     @EnvironmentObject var order: Order
-    @State private var paymentType = "Cash"
+    @State private var paymentType: PaymentType = .Cash
     @State private var addLoyaltyDetails = false
     @State private var loyaltyNumber = ""
     @State private var tip = 15
     @State private var showingPaymentAlert = false
     
-    private let paymentTypes = ["Cash", "Credit card", "iDine"]
     private let tipsAmount = [0, 10, 15, 20, 25]
     private var totalPrice: String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        
         let total = Double(order.total)
         let tipValue =  (total  * Double(tip)) / 100
-        return formatter.string(from: NSNumber(value: total + tipValue)) ?? "0.0$"
+        return "\(total + tipValue)$"
     }
     
     var body: some View {
@@ -32,9 +43,8 @@ struct PaymentView: View {
             Section {
                 Picker("How do you want to pay?",
                        selection: $paymentType) {
-                    ForEach(paymentTypes,
-                            id: \.self) {
-                        Text($0)
+                    ForEach(PaymentType.allCases, id: \.self) {
+                        Text($0.value)
                     }
                 }
                 

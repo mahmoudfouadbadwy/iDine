@@ -10,7 +10,7 @@ import SwiftUI
 struct ItemRow: View {
     
    let item: MenuItem
-   private  let colors: [String: Color] = ["D": .purple, "G": .black, "N": .red, "S": .blue, "V": .green]
+   private let colors: [String: Color] = ["D": .purple, "G": .black, "N": .red, "S": .blue, "V": .green]
     
     var body: some View {
         
