@@ -8,6 +8,23 @@
 
 import SwiftUI
 
+
+@MainActor class MenuHandler: ObservableObject {
+    @Published var menu: [MenuSection] = []
+    
+    func loadMenu() async throws {
+        do {
+            menu = try await Bundle.main.decode([MenuSection].self, from: "menu.json")
+            print(menu.count)
+        } catch {
+            throw(error)
+        }
+         
+    }
+}
+
+
+
 struct MenuSection: Codable, Identifiable {
     var id: UUID
     var name: String

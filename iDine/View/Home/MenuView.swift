@@ -9,13 +9,12 @@ import SwiftUI
 
 struct MenuView: View {
     
-    private let menu = Bundle.main.decode([MenuSection].self, from: "menu.json")
+    @StateObject private var menuHandler = MenuHandler()
     
     var body: some View {
-        
         NavigationView {
             List {
-                ForEach(menu) { section in
+                ForEach(menuHandler.menu) { section in
                     Section(header: Text(section.name)) {
                         ForEach(section.items) { item in
                             NavigationLink(
@@ -27,6 +26,14 @@ struct MenuView: View {
             }
             .navigationTitle("Menu")
             .listStyle(GroupedListStyle())
+            .task {
+                do {
+                    try await menuHandler.loadMenu()
+                } catch {
+                    print(error.localizedDescription)
+                }
+               
+            }
         }
     }
 }
